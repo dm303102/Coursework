@@ -1,0 +1,28 @@
+//*************************************************************
+// File: README
+//
+// Author: Doug Morgan
+// Email: dm303102@ohiou.edu
+//
+// Description: README file for Intal_Interp program
+//
+// The Intal_Interp.cc program reads and interprets
+// commands from the low-level language Intal. Commands include
+// ADDR var addr, SET var val, INCR var, DECR var, ADD || SUB
+// || MULT || DIV on var var and PRINT var. The program takes
+// one command line parameter that is a flag to determine the
+// STL algorithm to use in implementing the sybmol_table for the
+// Intal interpreter. These inlude -h(hash_map), -m(map) and
+// -l(list). The interpreter accepts multiple bindings by using
+// another multimap structure to map an address
+// (range: 0-50,000) to a set of variable strings. These strings
+// are referenced and updated every time a variable with the same
+// address is updated. The STL data structures implementing the
+// table are composed of string key to represent variables and
+// a struct defined below called binding as the data which holds
+// an integer address and an integer value.
+//
+// The -l option works up until access of the elements in the list. I
+// can't figure it out. The list objects are found and update by an
+// iterator, but when I tried to output them, I got junk.
+//
