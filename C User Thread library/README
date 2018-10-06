@@ -1,0 +1,8 @@
+In this last project, you will start with a skeleton of a preemptive user-level thread library
+under the SOLARIS operating system. The skeleton library contains a set of basic thread
+management functions. You will add several functions to the existing skeleton to
+complete a preemptive user-level thread.
+The library will consist of a set of functions that allow management of threads in user
+space (i.e., the operating system is not aware of your threads) according to a many-to-one
+model. These functions will allow the creation, termination, and synchronization of
+threads, as well as setting the scheduling policy.
