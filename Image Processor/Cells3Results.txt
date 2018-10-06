@@ -1,0 +1,5 @@
+Found 56 black regions and 4 white regions.
+Region		Area(pixels)	Location (row, col)
+Largest		74245		149 147
+Smallest	1		0 0
+Mean		1480
