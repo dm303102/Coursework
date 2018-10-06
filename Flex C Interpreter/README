@@ -1,0 +1,5 @@
+Description: Flex program that lexically analyzes a C program file
+and identifies lexical C words and characters and returns then to prog3.y 
+for syntactical analysis.
+
+Input file: test.c
