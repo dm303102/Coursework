@@ -1,0 +1,4 @@
+Image processing class that reads a ppm image and determines light and dark blobs based on the threshold commandline parameter.
+
+
+commandline options: -t threshold -c correctedness

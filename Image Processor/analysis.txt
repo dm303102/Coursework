@@ -1,0 +1,38 @@
+/* **********************************************************************
+ *   Program:  Prog2
+ *   Author: Doug Morgan
+ *   Class: CS 404
+ *   Date: 2-18-07
+ *   Description:  This analysis file will describe the design, implementation
+ *                 and analysis of the Prog2 - an image processing class.
+ *
+ *   Known Bugs: -only 4-correctedness is implemented
+ *               -make must be executed 3 times to compile the object files
+ *               -the median statistic is not computed in the output
+ ******************************************************************* */
+
+The first aspect of the program is the Thesholding function. It simple scans
+the image and thresholds the pixels to black and white whick takes O(n).
+Then ProcImg scans every pixel comparing it to it neighbors to determine
+if they are connected - the same color. The UnionFind data structure is
+passed to ProcImg from main and mainntains 3 stl maps - nodes, set_data and 
+SetTrees. At each pixel a MakeSet is called. This creates a new node in nodes
+and a singleton tree in SetTrees at the ith location in the map where i is the
+pixel index in the 1D image array. It also initializes the ith SetData object
+which hold current size, max and min row and column pixel location, and black
+or white pixel colors for the ith tree. Note that the indexes of the maps are
+maintained internally and consistently correspond to each other. The pixel 
+is then compared to its neighbors before it. If any are the same color, they 
+are Unioned with the pixel. The UnionFind::Union function is the heart of 
+Prog2. It maintains ranked unions and merges trees together by moving node
+pointer and updating the corresponding set_data tree data. UnionFind::Find 
+does tree compression at every step. By convention of rank-union the 
+smaller tree is merged to the root of the larger tree so the smaller tree 
+pointer in SetTrees is set to NULL. This allows us to gather statistics easily
+by looking at the links in SetTrees that are not NULL and referncing the
+corresponding set_data data. The ProcImg loop looks at every pixel in O(n).
+Creating a node is constant time as well Unioning trees. The 
+UnionFind::Find function must reference a node and move up the tree until it
+finds the root node to do a union. However, union-by-rank and tree compression
+maintains a balanced tree, so the worst case would be O(log(n)) - uni-color
+image. Therefore, prog2 should run in O(nlog(n)).
