@@ -1,0 +1,8 @@
+Prgram MapGraph
+
+Description: Constructs a graph in adjacnecy list form
+from a map file reading in a city number, name and x and y
+coordinates. Then it computes a minimum distance spanning
+tree and outputs a tour of the city graph
+
+Author: Doug Morgan
